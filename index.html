@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical Assessment</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TMZWFH4J');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+
+<h1>URL Parameters Display</h1>
+<!-- 展示key1和key2的值 -->
+<p>Key 1: <span id="key1-value"></span></p>
+<p>Key 2: <span id="key2-value"></span></p>
+
+<!-- 你的Javascript代码将放在这里 -->
+<script>
+    // 定义一个函数来提取URL中的参数
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            key1: params.get('key1'),
+            key2: params.get('key2')
+        };
+    }
+
+    // 使用该函数并设置值到页面元素中
+    const params = getQueryParams();
+    document.getElementById('key1-value').textContent = params.key1 || 'Not provided';
+    document.getElementById('key2-value').textContent = params.key2 || 'Not provided';
+</script>
+
+<!-- 评估2的Javascript标签实现 -->
+<script type="text/javascript">
+    (function(a,b,c,d,e,f,g){
+        e['ire_o']=c;e[c]=e[c]||function(){(e[c].a=e[c].a||[]).push(arguments)};
+        f=d.createElement(b);g=d.getElementsByTagName(b)[0];f.async=1;f.src=a;
+        g.parentNode.insertBefore(f,g);
+    })(window,'script','ire','document','window','https://utt.impactcdn.com/A2788006-de3d-4011-a57c-c4737e79de0365535.js');
+
+    // 确保在页面加载后调用ire('identify')函数
+    window.addEventListener('load', function() {
+        ire('identify', {
+            customerid: document.getElementById('key1-value').textContent, // 插入key1的值
+            customeremail: document.getElementById('key2-value').textContent // 插入key2的值
+        });
+    });
+</script>
+
+</body>
+</html>
